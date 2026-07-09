@@ -1,0 +1,42 @@
+/* Admin Extra Styles */
+.admin-login-overlay {
+  position: fixed; inset: 0;
+  background: var(--color-bg);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+}
+.admin-login-box {
+  background: var(--color-surface);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  width: 100%;
+  max-width: 420px;
+}
+.btn-table-edit, .btn-table-toggle, .btn-table-delete {
+  padding: 6px 12px; border-radius: 6px; font-size: 13px;
+  margin-right: 6px; cursor: pointer; border: 1px solid;
+  background: transparent; transition: var(--transition);
+}
+.btn-table-edit { color: var(--color-gold); border-color: rgba(201,168,76,0.3); }
+.btn-table-edit:hover { background: rgba(201,168,76,0.1); }
+.btn-table-toggle { color: var(--color-text-muted); border-color: var(--color-border); }
+.btn-table-toggle:hover { background: rgba(255,255,255,0.05); }
+.btn-table-delete { color: var(--color-danger); border-color: rgba(239,68,68,0.3); }
+.btn-table-delete:hover { background: rgba(239,68,68,0.1); }
+
+.pixel-guide { display: flex; flex-direction: column; gap: 20px; }
+.pixel-item {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: var(--color-bg); border: 1px solid var(--color-border);
+  border-radius: var(--radius); padding: 20px;
+}
+.pixel-icon { font-size: 32px; flex-shrink: 0; }
+.pixel-item code { display: block; margin-top: 8px; font-size: 13px; background: var(--color-bg2); padding: 8px 12px; border-radius: 6px; }
+
+.seo-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; border-radius: var(--radius-sm);
+  background: var(--color-bg); border: 1px solid var(--color-border);
+  font-size: 15px; color: var(--color-text);
+}

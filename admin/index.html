@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Admin — Medina Digital</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- LOGIN OVERLAY -->
+<div class="admin-login-overlay" id="loginOverlay">
+  <div class="admin-login-box">
+    <div class="logo" style="justify-content:center;margin-bottom:32px">
+      <span class="logo-icon">M</span>
+      <div>
+        <span class="logo-name">Medina Digital</span>
+        <span class="logo-tagline">Painel de Controle</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Senha de acesso</label>
+      <input type="password" id="adminPassword" placeholder="Digite a senha..." onkeydown="if(event.key==='Enter')checkLogin()">
+    </div>
+    <button class="btn-primary" style="width:100%;padding:16px;font-size:16px;margin-top:8px" onclick="checkLogin()">Entrar</button>
+    <p id="loginError" style="color:var(--color-danger);text-align:center;margin-top:12px;font-size:14px;display:none">Senha incorreta.</p>
+    <p style="text-align:center;margin-top:20px;font-size:12px;color:var(--color-text-muted)">
+      Senha padrão: <strong style="color:var(--color-gold)">medina2024</strong><br>
+      <small>Altere em js/admin.js na variável ADMIN_PASSWORD</small>
+    </p>
+  </div>
+</div>
+
+<!-- LAYOUT ADMIN -->
+<div class="admin-layout" id="adminLayout" style="display:none">
+
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar">
+    <div class="admin-logo">
+      <div class="logo">
+        <span class="logo-icon">M</span>
+        <div>
+          <span class="logo-name">Medina Digital</span>
+          <span class="logo-tagline">Admin</span>
+        </div>
+      </div>
+    </div>
+    <nav class="admin-nav">
+      <a href="#" class="active" onclick="showSection('dashboard')"><span>📊</span> Dashboard</a>
+      <a href="#" onclick="showSection('produtos')"><span>📚</span> Ebooks</a>
+      <a href="#" onclick="showSection('categorias')"><span>🏷️</span> Categorias</a>
+      <a href="#" onclick="showSection('depoimentos')"><span>⭐</span> Depoimentos</a>
+      <a href="#" onclick="showSection('config')"><span>⚙️</span> Configurações</a>
+      <a href="#" onclick="showSection('pixels')"><span>🎯</span> Pixels</a>
+      <a href="#" onclick="showSection('seo')"><span>🔍</span> SEO</a>
+      <a href="../index.html" target="_blank"><span>🌐</span> Ver Site</a>
+      <a href="#" onclick="logout()" style="margin-top:auto;color:var(--color-danger)"><span>🚪</span> Sair</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="admin-main">
+
+    <!-- DASHBOARD -->
+    <div id="section-dashboard" class="admin-section">
+      <div class="admin-topbar">
+        <h1>Dashboard</h1>
+        <span style="color:var(--color-text-muted);font-size:14px" id="adminDate"></span>
+      </div>
+      <div class="stats-cards">
+        <div class="stat-card">
+          <div class="stat-card-label">Ebooks Ativos</div>
+          <div class="stat-card-value" id="dashEbooks">—</div>
+          <div class="stat-card-change">📚 Total do catálogo</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Categorias</div>
+          <div class="stat-card-value" id="dashCategorias">—</div>
+          <div class="stat-card-change">🏷️ Organizadas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Depoimentos</div>
+          <div class="stat-card-value" id="dashDepoimentos">—</div>
+          <div class="stat-card-change">⭐ Na vitrine</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Status</div>
+          <div class="stat-card-value" style="color:var(--color-success);font-size:20px">✓ Online</div>
+          <div class="stat-card-change">🌐 Site ativo</div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h2>Ações rápidas</h2>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn-primary" onclick="showSection('produtos');setTimeout(()=>openAddProduct(),100)">+ Novo Ebook</button>
+          <button class="btn-outline" onclick="showSection('config')">Editar Loja</button>
+          <button class="btn-outline" onclick="showSection('pixels')">Configurar Pixels</button>
+          <a href="../index.html" target="_blank" class="btn-outline">Ver Site →</a>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-header"><h2>Seus Ebooks</h2></div>
+        <table class="admin-table" id="dashTable">
+          <thead><tr><th>Título</th><th>Categoria</th><th>Preço</th><th>Status</th></tr></thead>
+          <tbody id="dashTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PRODUTOS -->
+    <div id="section-produtos" class="admin-section" style="display:none">
+      <div class="admin-topbar">
+        <h1>Ebooks</h1>
+        <button class="btn-primary" onclick="openAddProduct()">+ Novo Ebook</button>
+      </div>
+
+      <div class="admin-card" id="productFormCard" style="display:none">
+        <div class="admin-card-header">
+          <h2 id="productFormTitle">Novo Ebook</h2>
+          <button onclick="closeProductForm()" style="color:var(--color-text-muted);font-size:20px">✕</button>
+        </div>
+        <form onsubmit="saveProduct(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Título do Ebook *</label>
+              <input type="text" id="pTitle" required placeholder="Ex: Mentalidade de Campeão">
+            </div>
+            <div class="form-group">
+              <label>Categoria *</label>
+              <select id="pCategory" required></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Descrição *</label>
+            <textarea id="pDesc" required placeholder="Descreva o ebook em 2-3 frases chamativas..."></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Preço atual (R$) *</label>
+              <input type="number" id="pPrice" required step="0.01" min="0" placeholder="29.90">
+            </div>
+            <div class="form-group">
+              <label>Preço original / riscado (R$)</label>
+              <input type="number" id="pOriginalPrice" step="0.01" min="0" placeholder="59.90">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Link de compra (Kiwify) *</label>
+              <input type="url" id="pBuyLink" required placeholder="https://kiwify.app/seu-produto">
+            </div>
+            <div class="form-group">
+              <label>URL da imagem de capa</label>
+              <input type="url" id="pImage" placeholder="https://... ou deixe em branco">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Número de páginas</label>
+              <input type="number" id="pPages" placeholder="187">
+            </div>
+            <div class="form-group">
+              <label>Avaliação (0-5)</label>
+              <input type="number" id="pRating" step="0.1" min="0" max="5" placeholder="4.9">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Etiqueta / Badge</label>
+              <input type="text" id="pBadge" placeholder="Ex: Mais vendido, Lançamento">
+            </div>
+            <div class="form-group">
+              <label>Tipo de badge</label>
+              <select id="pBadgeType">
+                <option value="gold">Dourado (padrão)</option>
+                <option value="new">Verde (novo)</option>
+                <option value="sale">Vermelho (promoção)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Benefícios (um por linha)</label>
+            <textarea id="pFeatures" placeholder="187 páginas de conteúdo denso&#10;Exercícios práticos por capítulo&#10;Acesso vitalício&#10;Garantia de 7 dias"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Status</label>
+            <select id="pActive">
+              <option value="true">Ativo (visível na loja)</option>
+              <option value="false">Inativo (oculto)</option>
+            </select>
+          </div>
+          <input type="hidden" id="pId">
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Salvar Ebook</button>
+            <button type="button" class="btn-outline" onclick="closeProductForm()">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="admin-card">
+        <table class="admin-table">
+          <thead><tr><th>Título</th><th>Categoria</th><th>Preço</th><th>Status</th><th>Ações</th></tr></thead>
+          <tbody id="productsTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CATEGORIAS -->
+    <div id="section-categorias" class="admin-section" style="display:none">
+      <div class="admin-topbar">
+        <h1>Categorias</h1>
+      </div>
+      <div class="admin-card">
+        <p style="color:var(--color-text-muted);margin-bottom:24px">Para editar categorias, altere o array <code style="color:var(--color-gold)">CATEGORIES</code> no arquivo <code style="color:var(--color-gold)">js/data.js</code></p>
+        <table class="admin-table">
+          <thead><tr><th>Ícone</th><th>Nome</th><th>ID</th><th>Ebooks</th></tr></thead>
+          <tbody id="categoriasTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- DEPOIMENTOS -->
+    <div id="section-depoimentos" class="admin-section" style="display:none">
+      <div class="admin-topbar"><h1>Depoimentos</h1></div>
+      <div class="admin-card">
+        <p style="color:var(--color-text-muted)">Para editar depoimentos, altere a seção de depoimentos diretamente no arquivo <code style="color:var(--color-gold)">index.html</code> — procure por <code style="color:var(--color-gold)">&lt;!-- DEPOIMENTOS --&gt;</code></p>
+        <br>
+        <a href="../index.html" target="_blank" class="btn-outline">Abrir index.html →</a>
+      </div>
+    </div>
+
+    <!-- PIXELS -->
+    <div id="section-pixels" class="admin-section" style="display:none">
+      <div class="admin-topbar"><h1>Pixels de Remarketing</h1></div>
+      <div class="admin-card">
+        <div class="admin-card-header"><h2>Como configurar seus pixels</h2></div>
+        <p style="color:var(--color-text-muted);margin-bottom:24px">Abra o arquivo <code style="color:var(--color-gold)">index.html</code> e localize a seção <code style="color:var(--color-gold)">&lt;!-- PIXELS --&gt;</code> no topo. Substitua os valores conforme abaixo:</p>
+
+        <div class="pixel-guide">
+          <div class="pixel-item">
+            <div class="pixel-icon">📘</div>
+            <div>
+              <strong style="color:var(--color-white)">Meta Pixel (Facebook + Instagram)</strong>
+              <p style="color:var(--color-text-muted);font-size:14px;margin-top:4px">Acesse: <a href="https://business.facebook.com" target="_blank" style="color:var(--color-gold)">business.facebook.com</a> → Gerenciador de Eventos → Criar Pixel → Copie o ID numérico</p>
+              <code style="color:var(--color-gold)">var META_PIXEL_ID = 'COLE_SEU_ID_AQUI';</code>
+            </div>
+          </div>
+          <div class="pixel-item">
+            <div class="pixel-icon">🔴</div>
+            <div>
+              <strong style="color:var(--color-white)">Google Tag Manager</strong>
+              <p style="color:var(--color-text-muted);font-size:14px;margin-top:4px">Acesse: <a href="https://tagmanager.google.com" target="_blank" style="color:var(--color-gold)">tagmanager.google.com</a> → Criar conta → Copie o ID (GTM-XXXXXXX)</p>
+              <code style="color:var(--color-gold)">var GTM_ID = 'GTM-XXXXXXX';</code>
+            </div>
+          </div>
+          <div class="pixel-item">
+            <div class="pixel-icon">🎵</div>
+            <div>
+              <strong style="color:var(--color-white)">TikTok Pixel</strong>
+              <p style="color:var(--color-text-muted);font-size:14px;margin-top:4px">Acesse: <a href="https://ads.tiktok.com" target="_blank" style="color:var(--color-gold)">ads.tiktok.com</a> → Ativos → Eventos → Pixel Web → Copie o ID</p>
+              <code style="color:var(--color-gold)">var TIKTOK_ID = 'COLE_SEU_ID_AQUI';</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO -->
+    <div id="section-seo" class="admin-section" style="display:none">
+      <div class="admin-topbar"><h1>SEO & Redes Sociais</h1></div>
+      <div class="admin-card">
+        <div class="admin-card-header"><h2>O que já está configurado</h2></div>
+        <div style="display:grid;gap:16px">
+          <div class="seo-item"><span class="badge badge-active">✓ Ativo</span> <strong>Meta tags SEO</strong> — title, description, keywords, robots</div>
+          <div class="seo-item"><span class="badge badge-active">✓ Ativo</span> <strong>Open Graph</strong> — compartilhamento bonito no WhatsApp, Facebook, etc.</div>
+          <div class="seo-item"><span class="badge badge-active">✓ Ativo</span> <strong>Twitter Card</strong> — prévia no Twitter/X</div>
+          <div class="seo-item"><span class="badge badge-active">✓ Ativo</span> <strong>Schema.org</strong> — dados estruturados para o Google</div>
+          <div class="seo-item"><span class="badge badge-active">✓ Ativo</span> <strong>Sitemap pronto</strong> — sitemap.xml criado</div>
+        </div>
+        <br>
+        <p style="color:var(--color-text-muted);font-size:14px">Para editar os textos de SEO, abra o <code style="color:var(--color-gold)">index.html</code> e edite as tags no <code style="color:var(--color-gold)">&lt;head&gt;</code></p>
+      </div>
+    </div>
+
+    <!-- CONFIGURAÇÕES -->
+    <div id="section-config" class="admin-section" style="display:none">
+      <div class="admin-topbar"><h1>Configurações</h1></div>
+      <div class="admin-card">
+        <div class="admin-card-header"><h2>Dados da loja</h2></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nome da loja</label>
+            <input type="text" id="cfgName" value="">
+          </div>
+          <div class="form-group">
+            <label>Slogan</label>
+            <input type="text" id="cfgSlogan" value="">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>E-mail de contato</label>
+            <input type="email" id="cfgEmail" value="">
+          </div>
+          <div class="form-group">
+            <label>WhatsApp (com DDI+DDD)</label>
+            <input type="text" id="cfgWhatsapp" value="" placeholder="5544999999999">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Instagram (só o @)</label>
+            <input type="text" id="cfgInstagram" value="">
+          </div>
+          <div class="form-group">
+            <label>Link base Kiwify</label>
+            <input type="url" id="cfgKiwify" value="">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Total de ebooks (estatística)</label>
+            <input type="number" id="cfgEbooks" value="">
+          </div>
+          <div class="form-group">
+            <label>Total de clientes (estatística)</label>
+            <input type="number" id="cfgClientes" value="">
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-primary" onclick="saveConfig()">Salvar configurações</button>
+        </div>
+        <div id="configMsg" style="margin-top:16px;display:none;padding:12px;border-radius:8px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);color:var(--color-success)">
+          ✓ Configurações salvas! Edite o arquivo js/data.js para aplicar permanentemente.
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-header"><h2>Alterar senha do painel</h2></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nova senha</label>
+            <input type="password" id="newPassword" placeholder="Digite a nova senha">
+          </div>
+          <div class="form-group">
+            <label>Confirmar senha</label>
+            <input type="password" id="confirmPassword" placeholder="Confirme a senha">
+          </div>
+        </div>
+        <button class="btn-outline" onclick="changePassword()">Alterar senha</button>
+        <p id="passMsg" style="margin-top:12px;font-size:14px;display:none"></p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

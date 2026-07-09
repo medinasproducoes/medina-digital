@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produto — Medina Digital</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="header scrolled"><nav class="nav container"><a href="../index.html" class="logo"><span class="logo-icon">M</span><div><span class="logo-name">Medina Digital</span><span class="logo-tagline">Read. Grow. Repeat.</span></div></a><ul class="nav-links"><li><a href="../index.html#catalogo">← Catálogo</a></li></ul><div class="nav-actions"><a href="../index.html#catalogo" class="btn-primary">Ver todos</a></div></nav></header>
+
+<div class="container">
+  <div class="product-detail" id="productDetail">
+    <div style="padding:200px 0;text-align:center;color:var(--color-text-muted)">Carregando...</div>
+  </div>
+</div>
+
+<footer class="footer"><div class="container"><div class="footer-bottom"><p>© 2025 Medina Digital.</p><a href="../index.html" style="color:var(--color-gold)">← Voltar ao início</a></div></div></footer>
+<script src="../js/data.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = parseInt(params.get("id"));
+const product = PRODUCTS.find(p => p.id === id);
+const cat = product ? CATEGORIES.find(c => c.id === product.category) : null;
+
+if (product) {
+  document.title = product.title + " — Medina Digital";
+  document.getElementById("productDetail").innerHTML = `
+    <div class="product-detail-cover">
+      <img src="${product.image}" alt="${product.title}">
+    </div>
+    <div class="product-detail-info">
+      <div class="product-category">${cat ? cat.icon + " " + cat.name : ""}</div>
+      <h1 class="product-title" style="font-family:var(--font-display);font-size:36px;color:var(--color-white);margin-bottom:16px">${product.title}</h1>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+        <span style="color:var(--color-gold);font-size:18px">★ ${product.rating}</span>
+        <span style="color:var(--color-text-muted);font-size:14px">(${product.reviews} avaliações)</span>
+        <span style="color:var(--color-text-muted);font-size:14px">• ${product.pages} páginas • ${product.format}</span>
+      </div>
+      <p class="product-desc" style="font-size:17px;color:var(--color-text-muted);margin-bottom:32px;line-height:1.8">${product.description}</p>
+      <ul class="product-features">
+        ${(product.features || []).map(f => `<li>${f}</li>`).join("")}
+      </ul>
+      <div class="buy-box">
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:20px">
+          ${product.originalPrice ? `<span style="font-size:16px;color:var(--color-text-muted);text-decoration:line-through">R$ ${product.originalPrice.toFixed(2).replace(".",",")}</span>` : ""}
+          <span class="price-current" style="font-size:40px;font-weight:700;color:var(--color-gold);font-family:var(--font-display)">R$ ${product.price.toFixed(2).replace(".",",")}</span>
+        </div>
+        <a href="${product.buyLink}" target="_blank" class="btn-primary" style="display:block;text-align:center;padding:18px;font-size:18px;margin-bottom:12px">
+          🛒 Comprar agora
+        </a>
+        <p style="text-align:center;color:var(--color-text-muted);font-size:13px;margin-bottom:16px">
+          Pagamento seguro via Kiwify • Pix, cartão ou boleto
+        </p>
+        <div class="guarantee-badge">
+          <span style="font-size:24px">🛡️</span>
+          <span>Garantia de satisfação de <strong style="color:var(--color-white)">7 dias</strong>. Se não gostar, devolvemos 100% do valor.</span>
+        </div>
+      </div>
+    </div>
+  `;
+} else {
+  document.getElementById("productDetail").innerHTML = `
+    <div style="padding:200px 0;text-align:center">
+      <p style="font-size:48px;margin-bottom:16px">📚</p>
+      <p style="color:var(--color-text-muted)">Produto não encontrado.</p>
+      <a href="../index.html#catalogo" class="btn-primary" style="margin-top:24px;display:inline-block">Ver catálogo</a>
+    </div>
+  `;
+}
+</script>
+</body>
+</html>

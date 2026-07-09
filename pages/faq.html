@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perguntas Frequentes — Medina Digital</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .faq-item { border: 1px solid var(--color-border); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
+    .faq-question { padding: 20px 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--color-white); font-weight: 500; background: var(--color-surface); transition: var(--transition); }
+    .faq-question:hover { background: var(--color-bg3); }
+    .faq-answer { padding: 0 24px; max-height: 0; overflow: hidden; transition: all 0.3s ease; color: var(--color-text-muted); }
+    .faq-item.open .faq-answer { padding: 20px 24px; max-height: 300px; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); }
+    .faq-icon { transition: transform 0.3s; color: var(--color-gold); }
+  </style>
+</head>
+<body>
+<header class="header scrolled"><nav class="nav container"><a href="../index.html" class="logo"><span class="logo-icon">M</span><div><span class="logo-name">Medina Digital</span><span class="logo-tagline">Read. Grow. Repeat.</span></div></a><ul class="nav-links"><li><a href="../index.html#catalogo">Catálogo</a></li><li><a href="contato.html">Contato</a></li></ul><div class="nav-actions"><a href="../index.html#catalogo" class="btn-primary">Ver Ebooks</a></div></nav></header>
+<section class="page-hero"><div class="container"><h1>Perguntas Frequentes</h1><p>Encontre respostas para as dúvidas mais comuns</p></div></section>
+<div class="page-content">
+  <div id="faqContainer"></div>
+  <div style="text-align:center;margin-top:48px;padding:32px;background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border)">
+    <h3 style="color:var(--color-white);margin-bottom:12px">Não encontrou sua resposta?</h3>
+    <p style="color:var(--color-text-muted);margin-bottom:24px">Nossa equipe está pronta para ajudar.</p>
+    <a href="contato.html" class="btn-primary">Falar com suporte</a>
+  </div>
+</div>
+<footer class="footer"><div class="container"><div class="footer-bottom"><p>© 2025 Medina Digital.</p><a href="../index.html" style="color:var(--color-gold)">← Voltar ao início</a></div></div></footer>
+<script>
+const faqs = [
+  { q: "Como recebo meu ebook após a compra?", a: "Imediatamente após a confirmação do pagamento, você receberá um e-mail com o link para download do ebook. O acesso é instantâneo e vitalício." },
+  { q: "Quais formatos estão disponíveis?", a: "Todos os nossos ebooks estão disponíveis em PDF e EPUB, formatos compatíveis com qualquer dispositivo: computador, celular, tablet ou leitores digitais." },
+  { q: "Posso ler no celular?", a: "Sim! Os ebooks funcionam perfeitamente em qualquer smartphone Android ou iPhone. Recomendamos o app Adobe Acrobat (PDF) ou o app de Livros da Apple (EPUB)." },
+  { q: "Qual é a política de reembolso?", a: "Oferecemos garantia de 7 dias corridos. Se por qualquer motivo não estiver satisfeito, basta entrar em contato e devolvemos 100% do valor pago, sem perguntas." },
+  { q: "Posso compartilhar o ebook com outra pessoa?", a: "Os ebooks são licenciados para uso pessoal. A distribuição ou compartilhamento não autorizado viola nossos termos e as leis de direitos autorais." },
+  { q: "Existe alguma assinatura ou mensalidade?", a: "Não! Cada ebook é comprado uma única vez e você tem acesso vitalício. Não há mensalidades ou cobranças recorrentes." },
+  { q: "Como funciona o pagamento?", a: "Os pagamentos são processados com segurança pela plataforma Kiwify. Aceitamos Pix (aprovação imediata), cartão de crédito (parcelamento disponível) e boleto bancário." },
+  { q: "Preciso ter internet para ler?", a: "Não. Após baixar o arquivo, você pode ler offline a qualquer momento, em qualquer lugar." },
+];
+
+const container = document.getElementById("faqContainer");
+faqs.forEach((faq, i) => {
+  const item = document.createElement("div");
+  item.className = "faq-item";
+  item.innerHTML = `
+    <div class="faq-question" onclick="toggleFaq(${i})">
+      <span>${faq.q}</span>
+      <span class="faq-icon">▾</span>
+    </div>
+    <div class="faq-answer"><p>${faq.a}</p></div>
+  `;
+  container.appendChild(item);
+});
+
+function toggleFaq(i) {
+  const items = document.querySelectorAll(".faq-item");
+  items.forEach((item, idx) => {
+    if (idx === i) item.classList.toggle("open");
+    else item.classList.remove("open");
+  });
+}
+</script>
+</body>
+</html>
