@@ -26,17 +26,17 @@
     <a href="contato.html" class="btn-primary">Falar com suporte</a>
   </div>
 </div>
-<footer class="footer"><div class="container"><div class="footer-bottom"><p>© 2025 Medina Digital.</p><a href="../index.html" style="color:var(--color-gold)">← Voltar ao início</a></div></div></footer>
+<footer class="footer"><div class="container"><div class="footer-bottom"><p>© 2026 Medina Digital — Medina'S Produções.</p><a href="../index.html" style="color:var(--color-gold)">← Voltar ao início</a></div></div></footer>
 <script>
 const faqs = [
-  { q: "Como recebo meu ebook após a compra?", a: "Imediatamente após a confirmação do pagamento, você receberá um e-mail com o link para download do ebook. O acesso é instantâneo e vitalício." },
-  { q: "Quais formatos estão disponíveis?", a: "Todos os nossos ebooks estão disponíveis em PDF e EPUB, formatos compatíveis com qualquer dispositivo: computador, celular, tablet ou leitores digitais." },
-  { q: "Posso ler no celular?", a: "Sim! Os ebooks funcionam perfeitamente em qualquer smartphone Android ou iPhone. Recomendamos o app Adobe Acrobat (PDF) ou o app de Livros da Apple (EPUB)." },
-  { q: "Qual é a política de reembolso?", a: "Oferecemos garantia de 7 dias corridos. Se por qualquer motivo não estiver satisfeito, basta entrar em contato e devolvemos 100% do valor pago, sem perguntas." },
-  { q: "Posso compartilhar o ebook com outra pessoa?", a: "Os ebooks são licenciados para uso pessoal. A distribuição ou compartilhamento não autorizado viola nossos termos e as leis de direitos autorais." },
-  { q: "Existe alguma assinatura ou mensalidade?", a: "Não! Cada ebook é comprado uma única vez e você tem acesso vitalício. Não há mensalidades ou cobranças recorrentes." },
-  { q: "Como funciona o pagamento?", a: "Os pagamentos são processados com segurança pela plataforma Kiwify. Aceitamos Pix (aprovação imediata), cartão de crédito (parcelamento disponível) e boleto bancário." },
-  { q: "Preciso ter internet para ler?", a: "Não. Após baixar o arquivo, você pode ler offline a qualquer momento, em qualquer lugar." },
+  { q: "Como recebo meu conteúdo após a compra?", a: "O acesso é imediato e automático. Após a confirmação do pagamento pela InfinitePay, você é redirecionado automaticamente para a página de download ou acesso ao produto — sem precisar aguardar e-mail nem intervenção manual." },
+  { q: "Quais formatos estão disponíveis?", a: "Os guias são entregues em PDF, formato compatível com qualquer dispositivo: computador, celular, tablet ou leitor digital." },
+  { q: "Posso ler no celular?", a: "Sim. Os arquivos funcionam em qualquer smartphone Android ou iPhone, em qualquer aplicativo de leitura de PDF." },
+  { q: "Posso compartilhar o conteúdo com outra pessoa?", a: "Os guias são licenciados para uso pessoal. A distribuição ou compartilhamento não autorizado viola nossos termos e as leis de direitos autorais." },
+  { q: "Existe alguma assinatura ou mensalidade?", a: "Não. Cada produto é adquirido uma única vez e o acesso é vitalício. Não há cobranças recorrentes." },
+  { q: "Como funciona o pagamento?", a: "Os pagamentos são processados com segurança pela InfinitePay, plataforma regulamentada pelo Banco Central do Brasil. Aceitamos Pix (aprovação imediata e sem taxas) e cartão de crédito." },
+  { q: "Preciso ter internet para acessar o conteúdo?", a: "Não. Após baixar o arquivo PDF, você pode ler offline a qualquer momento e em qualquer lugar." },
+  { q: "E se o conteúdo não fizer sentido para a minha realidade?", a: "Entre em contato pelo nosso formulário de suporte em até 7 dias após a compra. É um direito garantido pelo Código de Defesa do Consumidor e solicitaremos o reembolso integral junto à InfinitePay." },
 ];
 
 const container = document.getElementById("faqContainer");
@@ -46,7 +46,7 @@ faqs.forEach((faq, i) => {
   item.innerHTML = `
     <div class="faq-question" onclick="toggleFaq(${i})">
       <span>${faq.q}</span>
-      <span class="faq-icon">▾</span>
+      <span class="faq-icon">&#9662;</span>
     </div>
     <div class="faq-answer"><p>${faq.a}</p></div>
   `;
