@@ -22,9 +22,9 @@ const STORE_CONFIG = {
 // CATEGORIAS
 // =============================================
 const CATEGORIES = [
-  { id: "saude-mental",   name: "Saúde Mental",    icon: "🧠", color: "#1B3A4B" },
-  { id: "negocios",       name: "Negócios",         icon: "💼", color: "#2563eb" },
-  { id: "carreira",       name: "Carreira",         icon: "📄", color: "#4f46e5" },
+  { id: "saude-mental",   name: "Saúde Mental",    icon: "", color: "#1B3A4B" },
+  { id: "negocios",       name: "Negócios",         icon: "", color: "#2563eb" },
+  { id: "carreira",       name: "Carreira",         icon: "", color: "#4f46e5" },
 ];
 
 // =============================================
