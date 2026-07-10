@@ -22,9 +22,9 @@ const STORE_CONFIG = {
 // CATEGORIAS
 // =============================================
 const CATEGORIES = [
-  { id: "saude-mental",   name: "Saúde Mental",    icon: "", color: "#1B3A4B" },
-  { id: "negocios",       name: "Negócios",         icon: "", color: "#2563eb" },
-  { id: "carreira",       name: "Carreira",         icon: "", color: "#4f46e5" },
+  { id: "saude-mental",   name: "Saúde Mental",    icon: "<svg width='32' height='32' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M12 21C7 21 3 17.5 3 13c0-3 2-5 4-5 .5-2 2.5-4 5-4s4.5 2 5 4c2 0 4 2 4 5 0 4.5-4 8-9 8z'/><path stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M9 12h1.5l1-2 1.5 4 1-2H16'/></svg>", color: "#1B3A4B" },
+  { id: "negocios",       name: "Negócios",         icon: "<svg width='32' height='32' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M3 8a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V8z'/><path stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M8 6V5a2 2 0 012-2h4a2 2 0 012 2v1M3 12h18'/></svg>", color: "#2563eb" },
+  { id: "carreira",       name: "Carreira",         icon: "<svg width='32' height='32' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M9 12h6m-6 4h6M9 8h1M7 21h10a2 2 0 002-2V7.5L14.5 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'/></svg>", color: "#4f46e5" },
 ];
 
 // =============================================

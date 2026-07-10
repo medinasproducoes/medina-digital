@@ -219,9 +219,7 @@ function animateStats() {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        countUp("statEbooks", STORE_CONFIG.stats.ebooks, "");
-        countUp("statClientes", STORE_CONFIG.stats.clientes, "+");
-        document.getElementById("statAvaliacao").textContent = STORE_CONFIG.stats.avaliacao;
+        // contadores removidos — hero agora usa posicionamento de marca
         observer.disconnect();
       }
     });

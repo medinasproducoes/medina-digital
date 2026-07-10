@@ -3,20 +3,20 @@
    Para editar: procure os comentários /* EDITAR
    ============================================= */
 
-/* EDITAR: Cores principais da marca */
+/* Cores da marca Medina'S Produções */
 :root {
-  --color-bg: #0a0a0f;
-  --color-bg2: #111118;
-  --color-bg3: #16161f;
-  --color-surface: #1c1c28;
+  --color-bg: #0F2229;
+  --color-bg2: #14303A;
+  --color-bg3: #1A3B47;
+  --color-surface: #1C424F;
   --color-border: rgba(255,255,255,0.08);
-  --color-gold: #c9a84c;
-  --color-gold-light: #e4c76b;
+  --color-gold: #C2542D;
+  --color-gold-light: #D97347;
   --color-white: #ffffff;
-  --color-text: #e8e8f0;
-  --color-text-muted: #8888a0;
-  --color-primary: #c9a84c;
-  --color-primary-hover: #e4c76b;
+  --color-text: #E5EDF0;
+  --color-text-muted: #8FA8B8;
+  --color-primary: #C2542D;
+  --color-primary-hover: #D97347;
   --color-danger: #ef4444;
   --color-success: #22c55e;
   --font-display: 'Playfair Display', Georgia, serif;
