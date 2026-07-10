@@ -117,7 +117,7 @@ function initFilters() {
     const btn = document.createElement("button");
     btn.className = "filter-btn";
     btn.dataset.filter = cat.id;
-    btn.textContent = cat.icon + " " + cat.name;
+    btn.textContent = cat.name;
     btn.onclick = () => filterByCategory(cat.id);
     container.appendChild(btn);
   });
