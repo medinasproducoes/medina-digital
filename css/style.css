@@ -1,9 +1,9 @@
-/* =============================================
-   MEDINA DIGITAL — CSS COMPLETO
-   Para editar: procure os comentários /* EDITAR
+﻿/* =============================================
+   MEDINA DIGITAL â€” CSS COMPLETO
+   Para editar: procure os comentÃ¡rios /* EDITAR
    ============================================= */
 
-/* Cores da marca Medina'S Produções */
+/* Cores da marca Medina'S ProduÃ§Ãµes */
 :root {
   --color-bg: #0F2229;
   --color-bg2: #14303A;
@@ -55,7 +55,7 @@ input, textarea, select { font-family: var(--font-body); }
 }
 
 /* =============================================
-   BOTÕES
+   BOTÃ•ES
    ============================================= */
 .btn-primary {
   background: var(--color-gold);
@@ -241,7 +241,7 @@ input, textarea, select { font-family: var(--font-body); }
 @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
 
 /* =============================================
-   SEÇÕES
+   SEÃ‡Ã•ES
    ============================================= */
 .section { padding: 100px 0; }
 .section-dark { background: var(--color-bg2); }
@@ -280,7 +280,7 @@ input, textarea, select { font-family: var(--font-body); }
   transition: var(--transition);
 }
 .category-card:hover { border-color: var(--color-gold); transform: translateY(-4px); background: var(--color-bg3); }
-.category-card.active { border-color: var(--color-gold); background: rgba(201,168,76,0.1); }
+.category-card.active { border-color: var(--color-gold); background: rgba(194,84,45,0.1); }
 .category-icon { font-size: 36px; margin-bottom: 12px; }
 .category-name { font-weight: 600; color: var(--color-white); font-size: 14px; }
 .category-count { font-size: 12px; color: var(--color-text-muted); margin-top: 4px; }
@@ -328,7 +328,7 @@ input, textarea, select { font-family: var(--font-body); }
   transition: var(--transition);
   position: relative;
 }
-.product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: rgba(201,168,76,0.3); }
+.product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: rgba(194,84,45,0.3); }
 
 .product-badge {
   position: absolute;
@@ -354,7 +354,7 @@ input, textarea, select { font-family: var(--font-body); }
 .product-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
 .product-card:hover .product-cover img { transform: scale(1.05); }
 
-/* Ebook 3D mockup para quando não há imagem */
+/* Ebook 3D mockup para quando nÃ£o hÃ¡ imagem */
 .ebook-mockup {
   width: 100%; height: 220px;
   display: flex;
@@ -430,10 +430,10 @@ input, textarea, select { font-family: var(--font-body); }
   padding: 32px;
   transition: var(--transition);
 }
-.testimonial-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-4px); }
+.testimonial-card:hover { border-color: rgba(194,84,45,0.3); transform: translateY(-4px); }
 .testimonial-featured {
-  border-color: rgba(201,168,76,0.4);
-  background: rgba(201,168,76,0.05);
+  border-color: rgba(194,84,45,0.4);
+  background: rgba(194,84,45,0.05);
 }
 .stars { color: var(--color-gold); font-size: 18px; margin-bottom: 16px; }
 .testimonial-card p { color: var(--color-text-muted); font-style: italic; margin-bottom: 24px; line-height: 1.7; }
@@ -446,9 +446,9 @@ input, textarea, select { font-family: var(--font-body); }
    CTA BANNER
    ============================================= */
 .cta-banner {
-  background: linear-gradient(135deg, var(--color-bg3) 0%, rgba(201,168,76,0.1) 100%);
-  border-top: 1px solid rgba(201,168,76,0.2);
-  border-bottom: 1px solid rgba(201,168,76,0.2);
+  background: linear-gradient(135deg, var(--color-bg3) 0%, rgba(194,84,45,0.1) 100%);
+  border-top: 1px solid rgba(194,84,45,0.2);
+  border-bottom: 1px solid rgba(194,84,45,0.2);
   padding: 80px 0;
   text-align: center;
 }
@@ -523,7 +523,7 @@ input, textarea, select { font-family: var(--font-body); }
   font-size: 18px;
   transition: var(--transition);
 }
-.social-links a:hover { border-color: var(--color-gold); background: rgba(201,168,76,0.1); }
+.social-links a:hover { border-color: var(--color-gold); background: rgba(194,84,45,0.1); }
 
 .footer-col h4 {
   font-size: 14px;
@@ -560,7 +560,7 @@ input, textarea, select { font-family: var(--font-body); }
   position: fixed;
   bottom: 0; left: 0; right: 0;
   background: var(--color-surface);
-  border-top: 1px solid rgba(201,168,76,0.3);
+  border-top: 1px solid rgba(194,84,45,0.3);
   padding: 20px 24px;
   z-index: 9999;
   display: none;
@@ -598,7 +598,7 @@ input, textarea, select { font-family: var(--font-body); }
 .popup-overlay.show { display: flex; }
 .popup {
   background: var(--color-surface);
-  border: 1px solid rgba(201,168,76,0.3);
+  border: 1px solid rgba(194,84,45,0.3);
   border-radius: var(--radius-lg);
   max-width: 440px;
   width: 90%;
@@ -622,7 +622,7 @@ input, textarea, select { font-family: var(--font-body); }
 .popup h3 { font-family: var(--font-display); font-size: 24px; color: var(--color-white); margin-bottom: 12px; }
 .popup p { color: var(--color-text-muted); margin-bottom: 20px; font-size: 15px; }
 .coupon-box {
-  background: rgba(201,168,76,0.1);
+  background: rgba(194,84,45,0.1);
   border: 2px dashed var(--color-gold);
   border-radius: var(--radius-sm);
   padding: 16px;
@@ -636,7 +636,7 @@ input, textarea, select { font-family: var(--font-body); }
 .popup-skip { background: none; border: none; color: var(--color-text-muted); font-size: 13px; cursor: pointer; text-decoration: underline; }
 
 /* =============================================
-   PÁGINA INTERNA (pages/)
+   PÃGINA INTERNA (pages/)
    ============================================= */
 .page-hero {
   padding: 140px 0 80px;
@@ -690,8 +690,8 @@ input, textarea, select { font-family: var(--font-body); }
 .contact-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
 .contact-icon {
   width: 48px; height: 48px;
-  background: rgba(201,168,76,0.1);
-  border: 1px solid rgba(201,168,76,0.3);
+  background: rgba(194,84,45,0.1);
+  border: 1px solid rgba(194,84,45,0.3);
   border-radius: var(--radius-sm);
   display: flex; align-items: center; justify-content: center;
   font-size: 22px;
@@ -746,8 +746,8 @@ input, textarea, select { font-family: var(--font-body); }
 .product-detail-info .product-desc { font-size: 16px; margin-bottom: 28px; }
 .product-features { list-style: none; margin-bottom: 32px; }
 .product-features li { display: flex; align-items: center; gap: 10px; color: var(--color-text-muted); margin-bottom: 12px; }
-.product-features li::before { content: "✓"; color: var(--color-gold); font-weight: 700; }
-.buy-box { background: var(--color-surface); border: 1px solid rgba(201,168,76,0.2); border-radius: var(--radius-lg); padding: 28px; }
+.product-features li::before { content: "âœ“"; color: var(--color-gold); font-weight: 700; }
+.buy-box { background: var(--color-surface); border: 1px solid rgba(194,84,45,0.2); border-radius: var(--radius-lg); padding: 28px; }
 .buy-box .btn-primary { width: 100%; text-align: center; padding: 18px; font-size: 18px; margin-bottom: 12px; }
 .guarantee-badge { display: flex; align-items: center; gap: 10px; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); border-radius: var(--radius-sm); padding: 12px 16px; margin-top: 16px; }
 .guarantee-badge span { font-size: 13px; color: var(--color-text-muted); }
@@ -780,7 +780,7 @@ input, textarea, select { font-family: var(--font-body); }
 }
 .admin-nav a:hover, .admin-nav a.active {
   color: var(--color-white);
-  background: rgba(201,168,76,0.08);
+  background: rgba(194,84,45,0.08);
   border-left-color: var(--color-gold);
 }
 .admin-nav a span { font-size: 18px; }
@@ -862,7 +862,7 @@ input, textarea, select { font-family: var(--font-body); }
 }
 .badge-active { background: rgba(34,197,94,0.15); color: var(--color-success); }
 .badge-inactive { background: rgba(239,68,68,0.15); color: var(--color-danger); }
-.badge-pending { background: rgba(201,168,76,0.15); color: var(--color-gold); }
+.badge-pending { background: rgba(194,84,45,0.15); color: var(--color-gold); }
 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .form-actions { display: flex; gap: 12px; margin-top: 28px; }
@@ -898,3 +898,4 @@ input, textarea, select { font-family: var(--font-body); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
