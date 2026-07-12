@@ -192,7 +192,9 @@ function loadMore() {
 }
 
 function openProduct(id) {
-  window.location.href = `pages/produto.html?id=${id}`;
+  const product = PRODUCTS.find(p => p.id === id);
+  if (!product) return;
+  window.open(product.buyLink, "_blank");
 }
 
 // =============================================
