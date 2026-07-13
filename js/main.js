@@ -175,7 +175,6 @@ function createProductCard(product) {
           ${product.originalPrice ? `<span class="price-original">R$ ${product.originalPrice.toFixed(2).replace(".",",")}</span>` : ""}
           <span class="price-current">R$ ${product.price.toFixed(2).replace(".",",")}</span>
         </div>
-        <div class="product-rating">★ ${product.rating} (${product.reviews})</div>
       </div>
     </div>
     <div class="product-actions">
