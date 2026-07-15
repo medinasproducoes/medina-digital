@@ -899,3 +899,44 @@ input, textarea, select { font-family: var(--font-body); }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
+/* =============================================
+   COMPROMISSO EDITORIAL
+   ============================================= */
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+}
+.editorial-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px 26px;
+  transition: 0.2s;
+}
+.editorial-card:hover {
+  border-color: rgba(194,84,45,0.3);
+  transform: translateY(-4px);
+}
+.editorial-icon {
+  width: 48px; height: 48px;
+  background: rgba(194,84,45,0.1);
+  border: 1px solid rgba(194,84,45,0.3);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-gold);
+  margin-bottom: 18px;
+}
+.editorial-card h3 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--color-white);
+  margin-bottom: 8px;
+}
+.editorial-card p {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
