@@ -12,7 +12,7 @@ const STORE_CONFIG = {
   instagram: "medinasproducoes81",
   facebook: "medinasproducoes",
   stats: {
-    ebooks: 10,
+    ebooks: 11,
     clientes: 0,
     avaliacao: "Novo"
   }
@@ -231,6 +231,26 @@ const PRODUCTS = [
       "5 estruturas de título campeãs de engajamento",
       "Roteiros prontos de Reels e TikTok",
       "O Workflow dos 60 Minutos",
+      "Acesso imediato via Pix ou cartão"
+    ],
+    active: true
+  },
+  {
+    id: 11,
+    title: "O Fim da Exaustão Digital",
+    category: "produtividade-ia",
+    description: "Framework prático de 5 dias contra a exaustão digital: gestão de energia baseada em cronobiologia, delegação sintética com IA e recuperação de tempo — para quem termina o dia sem saber o que realmente entregou.",
+    price: 37.90,
+    badge: "Lançamento",
+    badgeType: "new",
+    format: "PDF",
+    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=800&fit=crop&q=80",
+    buyLink: "https://exaustao.medinadigital.com.br",
+    features: [
+      "Framework de 5 dias — uma mudança por dia",
+      "7 prompts de IA prontos para copiar e colar",
+      "2 estudos de caso de aplicação real",
+      "Templates de priorização e revisão semanal",
       "Acesso imediato via Pix ou cartão"
     ],
     active: true
