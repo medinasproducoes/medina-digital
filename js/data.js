@@ -12,7 +12,7 @@ const STORE_CONFIG = {
   instagram: "medinasproducoes81",
   facebook: "medinasproducoes",
   stats: {
-    ebooks: 11,
+    ebooks: 12,
     clientes: 0,
     avaliacao: "Novo"
   }
@@ -251,6 +251,26 @@ const PRODUCTS = [
       "7 prompts de IA prontos para copiar e colar",
       "2 estudos de caso de aplicação real",
       "Templates de priorização e revisão semanal",
+      "Acesso imediato via Pix ou cartão"
+    ],
+    active: true
+  },
+  {
+    id: 12,
+    title: "Recolocação Rápida",
+    category: "carreira",
+    description: "Do desemprego ao emprego dos sonhos em 90 dias. Guia completo com currículo que passa pela triagem ATS, LinkedIn otimizado, scripts de entrevista e negociação salarial — sem promessas vazias, só método.",
+    price: 39.90,
+    badge: "Lançamento",
+    badgeType: "new",
+    format: "PDF",
+    image: "https://recolocacao.medinadigital.com.br/img/capa.png",
+    buyLink: "https://recolocacao.medinadigital.com.br",
+    features: [
+      "16 capítulos: currículo, LinkedIn, entrevista e negociação",
+      "Scripts prontos para carta de apresentação e networking",
+      "Plano estruturado de 90 dias, semana a semana",
+      "Como usar IA na busca de emprego sem soar robótico",
       "Acesso imediato via Pix ou cartão"
     ],
     active: true
