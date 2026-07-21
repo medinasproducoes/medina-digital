@@ -940,3 +940,56 @@ input, textarea, select { font-family: var(--font-body); }
 }
 
 
+
+
+/* =============================================
+   REFINAMENTOS PROFISSIONAIS
+   ============================================= */
+
+/* Animacao de entrada suave nas secoes */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.section-header { animation: fadeInUp 0.7s ease both; }
+
+/* Hero title com tracking mais refinado */
+.hero-title { letter-spacing: -1px; line-height: 1.08; }
+.hero-eyebrow { letter-spacing: 3px; text-transform: uppercase; font-size: 12px; font-weight: 600; }
+
+/* Cards de produto com hover mais sofisticado */
+.product-card { transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease; }
+.product-card:hover { transform: translateY(-6px); box-shadow: 0 18px 50px rgba(0,0,0,0.45); }
+
+/* Categorias com hover elegante */
+.category-card { transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), border-color 0.3s ease; }
+.category-card:hover { transform: translateY(-4px); border-color: rgba(194,84,45,0.4); }
+
+/* Botoes com transicao mais suave */
+.btn-primary, .btn-ghost, .btn-outline { transition: all 0.25s cubic-bezier(0.22,1,0.36,1); }
+
+/* Links do footer com underline animado */
+.footer-col a { position: relative; display: inline-block; }
+.footer-col a::after {
+  content: ''; position: absolute; left: 0; bottom: -2px;
+  width: 0; height: 1px; background: var(--color-gold);
+  transition: width 0.25s ease;
+}
+.footer-col a:hover::after { width: 100%; }
+
+/* Divisor sutil entre secoes */
+.section + .section-dark { border-top: 1px solid var(--color-border); }
+
+/* Melhor legibilidade em telas grandes */
+@media (min-width: 1400px) {
+  .hero-title { font-size: 68px; }
+  .section-title { font-size: 42px; }
+}
+
+/* Scroll suave do indicador do hero */
+.hero-scroll { animation: fadeInUp 1s ease 0.5s both; }
+.scroll-arrow { animation: bounce 2s ease infinite; }
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
